@@ -1,0 +1,11 @@
+{
+  "name": "ausmark-ai-agency",
+  "version": "1.0.0",
+  "description": "Ausmark AI Agency website",
+  "scripts": {
+    "start": "live-server --port=3000 --open=index.html --watch=index.html,styles.css,script.js"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
