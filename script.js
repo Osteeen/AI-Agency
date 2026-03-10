@@ -224,16 +224,67 @@
       return;
     }
 
-    // Simulate submission — replace with real endpoint as needed
     const submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting…';
 
-    setTimeout(() => {
-      form.style.display = 'none';
-      formSuccess.classList.add('show');
-      formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 900);
+    const automationVal = getFieldValue('usingAutomation');
+    const automationLabel = { yes: 'Yes', no: 'No', 'not-sure': 'Not Sure' }[automationVal] || automationVal;
+
+    const payload = {
+      access_key: document.getElementById('web3formsKey').value,
+      subject: `New AI Audit Request — ${getFieldValue('businessName')}`,
+      from_name: 'AM AI Agency Website',
+      replyto: getFieldValue('email'),
+      message: [
+        '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+        '  NEW AI AUDIT REQUEST',
+        '  AM AI Agency — amaiagency.com',
+        '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+        '',
+        `  Business Name   : ${getFieldValue('businessName')}`,
+        `  Business Type   : ${getFieldValue('businessType')}`,
+        `  Team Size       : ${getFieldValue('teamSize')}`,
+        `  Email           : ${getFieldValue('email')}`,
+        `  Phone           : ${getFieldValue('phone') || 'Not provided'}`,
+        `  Using Automation: ${automationLabel}`,
+        '',
+        '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+        '  BIGGEST TIME-WASTER',
+        '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+        getFieldValue('timeWaster'),
+        '',
+        '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+        '  SUCCESS IN 90 DAYS',
+        '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+        getFieldValue('success90'),
+        '',
+        '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+      ].join('\n'),
+    };
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          form.style.display = 'none';
+          formSuccess.classList.add('show');
+          formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Get My Free AI Audit';
+          alert('Something went wrong. Please try again or email us directly at austinjohn337@gmail.com');
+        }
+      })
+      .catch(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Get My Free AI Audit';
+        alert('Network error. Please check your connection and try again.');
+      });
   });
 
 
