@@ -1,5 +1,5 @@
 /* ============================================================
-   AUSMARK AI AGENCY — styles.css
+   AM AI AGENCY — styles.css
    ============================================================ */
 
 /* ── Reset & Base ─────────────────────────────────────────── */
@@ -14,8 +14,8 @@
   --white:      #ffffff;
   --off-white:  #e8e8e8;
   --muted:      #888888;
-  --accent:     #f5c518;   /* bold gold */
-  --accent-dim: rgba(245, 197, 24, 0.12);
+  --accent:     #0ea5e9;   /* electric blue */
+  --accent-dim: rgba(14, 165, 233, 0.12);
   --red:        #e03d3d;
 
   --font-display: 'Bebas Neue', sans-serif;
@@ -103,9 +103,9 @@ ul { list-style: none; }
   color: var(--black);
 }
 .btn--primary:hover {
-  background: #ffd54f;
+  background: #38bdf8;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(245, 197, 24, 0.3);
+  box-shadow: 0 8px 24px rgba(14, 165, 233, 0.3);
 }
 .btn--primary:active { transform: translateY(0); }
 
@@ -288,7 +288,7 @@ ul { list-style: none; }
   border-color: var(--accent);
 }
 .hero__badge--2 {
-  border-color: rgba(245, 197, 24, 0.4);
+  border-color: rgba(14, 165, 233, 0.4);
   background: var(--accent-dim);
 }
 .hero__badge-num {
@@ -401,13 +401,13 @@ ul { list-style: none; }
 }
 .service-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(245, 197, 24, 0.35);
+  border-color: rgba(14, 165, 233, 0.35);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
 }
 .service-card:hover::before { opacity: 1; }
 
 .service-card--featured {
-  border-color: rgba(245, 197, 24, 0.4);
+  border-color: rgba(14, 165, 233, 0.4);
   background: var(--dark-3);
 }
 .service-card--featured::after {
@@ -575,7 +575,7 @@ ul { list-style: none; }
 }
 .industry-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(245, 197, 24, 0.4);
+  border-color: rgba(14, 165, 233, 0.4);
   background: var(--dark-3);
 }
 
@@ -672,7 +672,7 @@ ul { list-style: none; }
 .form-group textarea:focus,
 .form-group select:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(245, 197, 24, 0.1);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
 }
 
 .form-group input.invalid,
@@ -734,8 +734,8 @@ ul { list-style: none; }
   display: none;
   align-items: center;
   gap: 12px;
-  background: rgba(245, 197, 24, 0.08);
-  border: 1px solid rgba(245, 197, 24, 0.3);
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.3);
   border-radius: var(--radius);
   padding: 16px 20px;
   font-family: var(--font-ui);
@@ -844,7 +844,7 @@ ul { list-style: none; }
 }
 
 /* Mobile */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   :root { --header-h: 64px; }
 
   .nav {
@@ -858,6 +858,7 @@ ul { list-style: none; }
     transform: translateY(-110%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
+    z-index: 99;
   }
   .nav.open {
     transform: translateY(0);
