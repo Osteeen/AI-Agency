@@ -303,4 +303,59 @@
     });
   });
 
+
+
+  /* ── Hero Particles ─────────────────────────────────────── */
+  const heroCanvas = document.getElementById('heroParticles');
+  if (heroCanvas) {
+    const pCtx    = heroCanvas.getContext('2d');
+    let particles = [];
+    const COUNT   = 55;
+    const noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function resizeCanvas() {
+      heroCanvas.width  = heroCanvas.offsetWidth;
+      heroCanvas.height = heroCanvas.offsetHeight;
+    }
+
+    function makeParticle() {
+      return {
+        x:     Math.random() * heroCanvas.width,
+        y:     Math.random() * heroCanvas.height,
+        r:     Math.random() * 1.8 + 0.4,
+        vx:    (Math.random() - 0.5) * 0.25,
+        vy:    (Math.random() - 0.5) * 0.25,
+        alpha: Math.random() * 0.45 + 0.08,
+      };
+    }
+
+    function initParticles() {
+      particles = Array.from({ length: COUNT }, makeParticle);
+    }
+
+    function drawParticles() {
+      pCtx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = heroCanvas.width;
+        if (p.x > heroCanvas.width)  p.x = 0;
+        if (p.y < 0) p.y = heroCanvas.height;
+        if (p.y > heroCanvas.height) p.y = 0;
+        pCtx.beginPath();
+        pCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        pCtx.fillStyle = `rgba(0, 191, 255, ${p.alpha})`;
+        pCtx.fill();
+      });
+      requestAnimationFrame(drawParticles);
+    }
+
+    if (!noMotion) {
+      resizeCanvas();
+      initParticles();
+      drawParticles();
+      window.addEventListener('resize', () => { resizeCanvas(); initParticles(); }, { passive: true });
+    }
+  }
+
 })();
