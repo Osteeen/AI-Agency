@@ -1,5 +1,5 @@
 /* ============================================================
-   AUSMARK AI AGENCY — script.js
+   AM AI AGENCY — script.js
    ============================================================ */
 
 (function () {
@@ -234,12 +234,12 @@
     const payload = {
       access_key: document.getElementById('web3formsKey').value,
       subject: `New AI Audit Request — ${getFieldValue('businessName')}`,
-      from_name: 'AM AI Agency Website',
+      from_name: 'Osteen AI Website',
       replyto: getFieldValue('email'),
       message: [
         '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
         '  NEW AI AUDIT REQUEST',
-        '  AM AI Agency — amaiagency.com',
+        '  Osteen AI — osteenai.com',
         '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
         '',
         `  Business Name   : ${getFieldValue('businessName')}`,

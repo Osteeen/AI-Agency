@@ -1,5 +1,5 @@
 /* ============================================================
-   AM AI AGENCY — styles.css
+   OSTEEN AI — styles.css
    ============================================================ */
 
 /* ── Reset & Base ─────────────────────────────────────────── */
@@ -221,10 +221,12 @@ ul { list-style: none; }
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1fr;
   align-items: center;
   padding: 80px 24px;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .hero__eyebrow {
@@ -237,6 +239,7 @@ ul { list-style: none; }
   margin-bottom: 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 .hero__eyebrow::before {
@@ -260,7 +263,7 @@ ul { list-style: none; }
   font-size: 1.1rem;
   color: var(--muted);
   max-width: 480px;
-  margin-bottom: 40px;
+  margin: 0 auto 40px;
   line-height: 1.7;
 }
 
