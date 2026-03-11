@@ -1,7 +1,7 @@
 {
-  "name": "am-ai-agency",
+  "name": "osteen-ai",
   "version": "1.0.0",
-  "description": "AM AI Agency website",
+  "description": "Osteen AI website",
   "scripts": {
     "start": "live-server --port=3000 --open=index.html --watch=index.html,styles.css,script.js"
   },
