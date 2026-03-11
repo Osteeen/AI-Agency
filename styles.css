@@ -783,18 +783,18 @@ ul { list-style: none; }
   box-shadow: 0 0 8px rgba(14, 165, 233, 0.55);
 }
 
-/* Outline button */
-.btn--outline {
-  background: transparent;
-  color: var(--off-white);
-  border: 1px solid var(--border);
+/* Amber button */
+.btn--amber {
+  background: #F59E0B;
+  color: #0a0a0a;
+  border: none;
 }
-.btn--outline:hover {
-  background: var(--dark-3);
-  border-color: rgba(245, 158, 11, 0.5);
-  color: var(--white);
+.btn--amber:hover {
+  background: #FBBF24;
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
 }
+.btn--amber:active { transform: translateY(0); }
 
 /* ── Audit / Form ─────────────────────────────────────────── */
 .audit {
